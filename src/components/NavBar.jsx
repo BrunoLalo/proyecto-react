@@ -5,6 +5,7 @@ import {
     MenuItem, Flex, Box, Spacer
 } from '@chakra-ui/react'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 
 
 
@@ -18,19 +19,25 @@ const NavBar = () => {
                             Categorías
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>Categoría A</MenuItem>
-                            <MenuItem>Categoría B</MenuItem>
-                            <MenuItem>Categoría C</MenuItem>
+                            <MenuItem>Ropa</MenuItem>
+                            <MenuItem>Libros</MenuItem>
+                            <MenuItem>Otros Items</MenuItem>
                         </MenuList>
                     </Menu>
                 </Box>
+
                 <Spacer />
+
                 <Box p='4' >
                     <h3>PotterStore</h3>
                 </Box>
+                
                 <Spacer />
+
                 <Box p='4'>
+                    <Link to = {"/cart"}>
                     <CartWidget />
+                    </Link>
                 </Box>
             </Flex>
         </div>

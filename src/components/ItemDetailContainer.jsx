@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
-import ItemList from "./ItemList"
-import { useParams } from "react-router-dom"
+import ItemDetail from "./ItemDetail"
+import { Flex } from '@chakra-ui/react'
 
-const ItemListContainer = ({ greeting }) => {
-  const {categoria} = useParams ()
+const ItemDetailContainer = () => {
 
   const productos = [
     {
@@ -63,27 +62,23 @@ const ItemListContainer = ({ greeting }) => {
         resolve(productos);
       }, 2000);
     } else {
-      reject(new Error("No hay mas datos"));
+      reject(new Error("No hay datos"));
     }
   });
 
   getProductos
-    .then((res) => {})
-    .catch((error) => {
-      console.log(error);
-    });
-
-
-const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
+  .then((res) =>{
+  })
+  .catch((error) =>{
+    console.log(error);
+  })
 
   return (
-
-      categoria ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
-
+    <>
+      <ItemDetail productos={product}
+      />
+    </>
   );
 }
 
-
-
-
-export default ItemListContainer
+export default ItemDetailContainer

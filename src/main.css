@@ -1,11 +1,47 @@
+#root{
+    background-color: rgb(241, 230, 213);
+}
+
 .greet{
+    font-size: x-large;
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    text-decoration: 1px underline dashed;
+    margin-bottom: 30px;
 }
 
 .nav{
+    font-size: large;
     background-color: brown;
     border: 2px solid gold;
+}
+
+.cards{
+    height: 80dvh;
+    width: 50dvh;
+}
+
+.cards-im{
+    height: 300px;
+    width: 300px;
+}
+
+.cards-text{
+    padding: 20px;
+    align-items: center;
+}
+
+.numCont {
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 1rem;
+}
+.cont {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+#botonAlert{
+    margin: 20px;
+    justify-content: end;
 }
