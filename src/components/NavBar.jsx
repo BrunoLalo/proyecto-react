@@ -17,9 +17,9 @@ const NavBar = () => {
                             Categorías
                         </MenuButton>
                         <MenuList>
-                            <MenuItem><Link to={`/categoria/${"ropa"}`}>Ropa</Link></MenuItem>
-                            <MenuItem><Link to={`/categoria/${"libro"}`}>Libros</Link></MenuItem>
-                            <MenuItem><Link to={`/categoria/${"otros"}`}>Otros Objetos</Link></MenuItem>
+                            <MenuItem><Link to={`/categoria/${"ropa"}`}>Ir a Ropa</Link></MenuItem>
+                            <MenuItem><Link to={`/categoria/${"libro"}`}>Ir a Libros</Link></MenuItem>
+                            <MenuItem><Link to={`/categoria/${"otros"}`}>Ir a Otros Objetos</Link></MenuItem>
                         </MenuList>
                     </Menu>
                 </Box>
