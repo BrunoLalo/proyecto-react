@@ -1,36 +1,40 @@
-import { Card, Image, Stack, Text, CardBody, Divider, ButtonGroup, CardFooter, Heading, Flex } from "@chakra-ui/react"
+import { Card, Image, Stack, Text, CardBody, Divider, CardFooter, Heading, CardHeader } from "@chakra-ui/react"
 import ItemCount from "./ItemCount"
 import { useParams } from "react-router-dom"
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ productos }) => {
     const { id } = useParams();
 
-    const productosFiltrados = product.filter((producto) => producto.id == id);
+    const productosFiltrados = productos.filter((producto) => producto.id == id);
     return (
         <div className="cards">
 
             {productosFiltrados.map((p) => {
                 return (
                     <div key={p.id}>
-                        <Center>
-                            <Card>
+                        <Card className="cardDet">
+                            <CardBody>
+                                <Image
+                                    className="cards-im"
+                                    src={p.imagen}
+                                    borderRadius='lg' />
                                 <CardHeader>
-                                    <Heading size="md">{p.nombre}</Heading>
+                                    <Stack mt='6' spacing='3'>
+                                        <Heading className="cards-text" size='md'>{p.nombre}</Heading>
+                                    </Stack>
                                 </CardHeader>
-                                <CardBody>
-                                    <Text>{p.descripcion}</Text>
-                                    <Text color='gray.600' fontSize='2xl'>${product.precio}</Text>
-                                    <Text>{p.categoria}</Text>
-                                </CardBody>
-                                <CardFooter>
-                                    <ItemCount />
-                                </CardFooter>
-                            </Card>
-                        </Center>
+                                <Text>{p.descripcion}</Text>
+                                <Text color='gray.600' fontSize='2xl'>${p.precio}</Text>
+                            </CardBody>
+                            <Divider />
+                            <CardFooter>
+                                <ItemCount />
+                            </CardFooter>
+                        </Card>
                     </div>
                 );
             })}
-        </div>
+        </div >
 
 
     )

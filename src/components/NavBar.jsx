@@ -7,8 +7,6 @@ import {
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
 
-
-
 const NavBar = () => {
     return (
         <div className='nav'>
@@ -19,9 +17,9 @@ const NavBar = () => {
                             Categorías
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>Ropa</MenuItem>
-                            <MenuItem>Libros</MenuItem>
-                            <MenuItem>Otros Items</MenuItem>
+                            <MenuItem><Link to={`/categoria/${"ropa"}`}>Ropa</Link></MenuItem>
+                            <MenuItem><Link to={`/categoria/${"libro"}`}>Libros</Link></MenuItem>
+                            <MenuItem><Link to={`/categoria/${"otros"}`}>Otros Objetos</Link></MenuItem>
                         </MenuList>
                     </Menu>
                 </Box>
@@ -29,14 +27,16 @@ const NavBar = () => {
                 <Spacer />
 
                 <Box p='4' >
-                    <h3>PotterStore</h3>
+                    <Link to={"/"}>
+                        <h3>PotterStore</h3>
+                    </Link>
                 </Box>
-                
+
                 <Spacer />
 
                 <Box p='4'>
-                    <Link to = {"/cart"}>
-                    <CartWidget />
+                    <Link to={"/cart"}>
+                        <CartWidget />
                     </Link>
                 </Box>
             </Flex>

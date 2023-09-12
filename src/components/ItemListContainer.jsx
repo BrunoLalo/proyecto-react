@@ -2,59 +2,59 @@ import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 
-const ItemListContainer = ({ greeting }) => {
-  const {categoria} = useParams ()
+const ItemListContainer = () => {
+  const { categoria } = useParams()
 
   const productos = [
     {
       id: "1",
       nombre: "Túnica de Gryffindor",
-      descripcio: "Una túnica del colegio Hogwarts que pertenece a los hechiceros de Gryffindor",
-      preci: "10.000",
-      stoc: "20",
-      categori: "ropa",
-      image: "https://mimilandtiendafriki.com.ar/wp-content/uploads/2020/10/capatunica-harry-potter-gryffindor-adrogue-mimi-land.jpg"
+      descripcion: "Una túnica del colegio Hogwarts que pertenece a los hechiceros de Gryffindor",
+      precio: "10.000",
+      stock: "20",
+      categoria: "ropa",
+      imagen: "https://mimilandtiendafriki.com.ar/wp-content/uploads/2020/10/capatunica-harry-potter-gryffindor-adrogue-mimi-land.jpg"
     },
     {
-      i: "2",
-      nombr: "Varita de Voldemort",
-      descripcio: "La varita única que pertenecía a Lord Voldemort",
-      preci: "5000",
-      stoc: "15",
-      categori: "otros",
-      image: "https://m.media-amazon.com/images/I/611rFJfiXTL.jpg"
+      id: "2",
+      nombre: "Varita de Voldemort",
+      descripcion: "La varita única que pertenecía a Lord Voldemort",
+      precio: "5000",
+      stock: "15",
+      categoria: "otros",
+      imagen: "https://m.media-amazon.com/images/I/611rFJfiXTL.jpg"
     }, {
-      i: "3",
-      nombr: "Bufanda Slytherin",
-      descripcio: "La bufanda oficial para todos los estudiantes de Slytherin",
-      preci: "8000",
-      stoc: "35",
-      categori: "ropa",
-      image: "https://elenanofriki.com/2705-medium_default/bufanda-slytherin-harry-potter.jpg"
+      id: "3",
+      nombre: "Bufanda Slytherin",
+      descripcion: "La bufanda oficial para todos los estudiantes de Slytherin",
+      precio: "8000",
+      stock: "35",
+      categoria: "ropa",
+      imagen: "https://elenanofriki.com/2705-medium_default/bufanda-slytherin-harry-potter.jpg"
     }, {
-      i: "4",
+      id: "4",
       nombre: "Colección de libros",
-      descripcio: "La colección completa de la saga de Harry Potter",
-      preci: "35.000",
-      stoc: "8",
-      categori: "libro",
-      image: "https://libria.com.ar/wp-content/uploads/2021/03/LIB-HP-BOX-SET-ESP-TB-BOLSI.jpg"
+      descripcion: "La colección completa de la saga de Harry Potter",
+      precio: "35.000",
+      stock: "8",
+      categoria: "libro",
+      imagen: "https://libria.com.ar/wp-content/uploads/2021/03/LIB-HP-BOX-SET-ESP-TB-BOLSI.jpg"
     }, {
       id: "5",
-      nombr: "Taza de caldero",
-      descripcio: "Una taza que simula un caldero de pociones mágicas",
-      preci: "4.500",
-      stoc: "25",
-      categori: "otros",
-      image: "https://m.media-amazon.com/images/I/61BylHVZnUL.jpg"
+      nombre: "Taza de caldero",
+      descripcion: "Una taza que simula un caldero de pociones mágicas",
+      precio: "4.500",
+      stock: "25",
+      categoria: "otros",
+      imagen: "https://m.media-amazon.com/images/I/61BylHVZnUL.jpg"
     }, {
-      i: "6",
-      nombr: "Guión de Animales Fantásticos",
-      descripcio: "El guión original de la película Animales Fantasticos",
-      preci: "10.000",
-      stoc: "5",
-      categori: "libro",
-      image: "https://sbslibreria.vteximg.com.br/arquivos/ids/563731-1000-1000/9789878001708.jpg"
+      id: "6",
+      nombre: "Guión de Animales Fantásticos",
+      descripcion: "El guión original de la película Animales Fantasticos",
+      precio: "10.000",
+      stock: "5",
+      categoria: "libro",
+      imagen: "https://sbslibreria.vteximg.com.br/arquivos/ids/563731-1000-1000/9789878001708.jpg"
     }
   ]
   const getProductos = new Promise((resolve, reject) => {
@@ -68,17 +68,17 @@ const ItemListContainer = ({ greeting }) => {
   });
 
   getProductos
-    .then((res) => {})
+    .then((res) => { })
     .catch((error) => {
       console.log(error);
     });
 
 
-const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
+  const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
 
   return (
 
-      categoria ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
+    categoria ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
 
   );
 }

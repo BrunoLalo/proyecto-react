@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Item = ({ producto }) => {
   return (
     <div className="cards">
-
       <Card maxW='sm'>
         <CardBody>
           <Image
