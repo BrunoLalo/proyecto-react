@@ -1,16 +1,28 @@
 import { useState } from 'react'
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Form = () => {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
-    const [idPurchase, setidPurchase] = useState("3452xdf24");
+    const [idPurchase, setidPurchase] = useState(null);
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        nombre === "" ? alert("campo nombre vacío") : alert(`Bienvenido, ${nombre}`)
-        email === "" ? alert("campo email vacío") : alert(`Email registrado: ${email}`)
-    }
+    const db = getFirestore();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    addDoc(ordersCollection, order).then(({ id }) => setidPurchase(id));
+  };
+
+  const order = {
+    nombre,
+    email,
+  };
+
+  const ordersCollection = collection(db, "orden");
+ 
 
     return (
         <>
