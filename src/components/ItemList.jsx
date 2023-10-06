@@ -1,21 +1,20 @@
 import Item from "./Item"
 import { Flex } from '@chakra-ui/react'
+import Loader from "./Loader"
 
 const ItemList = ({ productos }) => {
 
-  return (
-    <div >
-      <h1 >BIENVENIDO A TU TIENDA MAGICA FAVORITA</h1>
-      <Flex  flexWrap="wrap" justifyContent="space-around" alignItems="center" > 
-      {
-        productos.map((p) => {
-        return (
-        <Item producto={p} key={p.id} />
-      )})}
-      </Flex>
+  const carga = []
 
+  return (
+
+    <div className="card">
+      {
+        carga ? <Item productos={productos} /> : <Loader />
+      }
     </div>
   )
-}
+
+};
 
 export default ItemList

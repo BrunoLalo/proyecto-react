@@ -22,8 +22,6 @@ const CartContextProvider = ({ children }) => {
     }
   }
 
-console.log(cart)
-
 const precioTotal = () => {
   return cart.reduce ((prev, act) => prev + act.quantity * act.precio, 0)
 }
