@@ -4,8 +4,9 @@ import { Flex } from '@chakra-ui/react'
 const ItemList = ({ productos }) => {
 
   return (
-    <div>
-      <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center" > 
+    <div >
+      <h1 >BIENVENIDO A TU TIENDA MAGICA FAVORITA</h1>
+      <Flex  flexWrap="wrap" justifyContent="space-around" alignItems="center" > 
       {
         productos.map((p) => {
         return (

@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Button} from '@chakra-ui/react'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 
-const ItemCount = () => {
+const ItemCount = ({initial, stock, onAdd}) => {
 
-const [contador, setContador] = useState (0)
+const [contador, setContador] = useState (initial)
 
 const sumar = () => {
     if(contador < 10){
@@ -17,19 +19,14 @@ const restar = () => {
     }
 }
 
-const onAdd = () => {
-    if(contador > 0){
-        alert(`Agregaste ${contador} items al carrito`)
-    }
-    
-}
+
 return (
 <>
     <div className = 'cont'>
-    <Button onClick={sumar}>+</Button>
+    <Button onClick={sumar} disabled={contador>=stock}>+</Button>
     <h3 className='numCont' >{contador}</h3> 
-    <Button onClick={restar}>-</Button>
-    <Button id='botonAlert'  onClick={onAdd}>Agregar al carrito</Button>
+    <Button onClick={restar} disabled={contador < 0}>-</Button>
+    <Button id='botonAlert' onClick={()=>onAdd(contador)}>Agregar al carrito</Button>
     </div>
 </>
 )

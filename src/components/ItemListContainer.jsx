@@ -77,7 +77,7 @@ const ItemListContainer = () => {
   const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
 
   return (
-
+    
     categoria ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
 
   );

@@ -1,9 +1,22 @@
-import { Card, Image, Stack, Text, CardBody, Divider, CardFooter, Heading, CardHeader } from "@chakra-ui/react"
+import { Card, Image, Stack, Text, CardBody, Divider, CardFooter, Heading, CardHeader, ButtonGroup, Button } from "@chakra-ui/react"
 import ItemCount from "./ItemCount"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ productos }) => {
     const { id } = useParams();
+
+
+    const { agregarAlCart } = useContext(CartContext)
+    const [irAlCart, setIrAlCart] = useState(false)
+
+    const onAdd = (quantity) => {
+        setIrAlCart(true);
+        agregarAlCart(productos, quantity);
+    }
+
 
     const productosFiltrados = productos.filter((producto) => producto.id == id);
     return (
@@ -28,8 +41,11 @@ const ItemDetail = ({ productos }) => {
                             </CardBody>
                             <Divider />
                             <CardFooter>
-                                <ItemCount />
-                            </CardFooter>
+                                <ButtonGroup spacing="2">
+                                    {
+                                        irAlCart ? <Link to='/cart'> <Button>Terminar Compra</Button></Link> : <ItemCount initial={0} onAdd={onAdd} />
+                                    }
+                                </ButtonGroup>                            </CardFooter>
                         </Card>
                     </div>
                 );
