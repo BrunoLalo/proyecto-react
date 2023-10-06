@@ -1,43 +1,35 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
-import {useEffect, useState} from 'react'
-import {getFirestore, getDocs, collection} from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import { doc, getDoc, getFirestore} from 'firebase/firestore'
 import { useParams } from "react-router-dom";
-import Loader from "./Loader";
+import { Flex } from "@chakra-ui/react"
 
 const ItemDetailContainer = () => {
-  const {id} = useParams()
-  const [producto, setProducto] = useState([])
-  
-  
-  
-  useEffect(()=>{
-    const db = getFirestore()
-    const itemsCollection = collection(db, `products`)
-    getDocs(itemsCollection).then((snapshot) => {
-      const docs = snapshot.docs.map((doc) => doc.data())
-      setProducto(docs)
-    })
-  },[])
-  
-  
-  const productoFiltro = producto.filter((productos) => productos.id === id)
-  
-    return (
-      <div className="detailCard">
-        {
-          productoFiltro.length > 0 ?
-          productoFiltro.map(p => {
-            return(
-              <ItemDetail producto={p} key={p.id}/>
-              )
-            }) : <Loader/>
-          }
-          </div>
-  
-      
-  
-      )}
-  
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const oneItem = doc(db, 'products', `${id}`);
+    getDoc(oneItem).then((snapshot) => {
+      if (snapshot.exists()) {
+        const docs = snapshot.data();
+        setProduct(docs);
+      } else {
+        console.log("Producto no encontrado");
+      }
+    });
+  }, [id]);
+
+
+  return (
+    <Flex flexWrap="wrap" justifyContent="center" >
+      <ItemDetail producto={product} key={id} />
+    </Flex>
+  )
+}
+
 
 export default ItemDetailContainer

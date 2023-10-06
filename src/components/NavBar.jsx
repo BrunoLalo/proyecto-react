@@ -13,7 +13,7 @@ const NavBar = () => {
             <Flex>
                 <Box p='4' >
                     <Menu>
-                        <MenuButton>
+                        <MenuButton className='menuBtn'>
                             Categorías
                         </MenuButton>
                         <MenuList>

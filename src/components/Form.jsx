@@ -1,18 +1,29 @@
 import { useState } from 'react'
 import { collection, addDoc, getFirestore } from "firebase/firestore";
-import Swal from 'sweetalert2'
+import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
 
-    // const Swal = require('sweetalert2')
+    const msj = () => {
+        if (nombre !== '' && email !== '') {
+            toast.success('¡Has realizado tu compra!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                style: {
+                    color:"black",
+                    background: "palegreen",
+                  },
+            });
+        }
+    }
 
-    // Swal.fire({
-    //     position: 'top-end',
-    //     icon: 'success',
-    //     title: 'Your work has been saved',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    // })
 
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
@@ -38,14 +49,37 @@ const Form = () => {
 
     return (
         <>
-
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Nombre" onChange={(e) => setNombre(e.target.value)} />
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <button type="submit">Enviar</button>
-            </form>
+                <div className="form">
+                    <FormControl onSubmit={handleSubmit}>
+                        <FormLabel>Nombre</FormLabel>
+                        <Input
+                            required
+                            background={'gainsboro'}
+                            placeholder="Nombre"
+                            type="text"
+                            onChange={(e) => setNombre(e.target.value)}
+                        />
+                        <FormLabel>Email</FormLabel>
+                        <Input
+                            required
+                            background={'gainsboro'}
+                            placeholder="Email"
+                            type="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
 
-            <h3>Id de tu compra: {idPurchase}</h3>
+                        <Button className="btnComprar" type="submit" onClick={msj}>
+                            Realizar Compra
+                        </Button>
+                    </FormControl>
+                    <div className='idCompra'>Tu Id es: {idPurchase}</div>
+
+
+                </div>
+
+            </form>
+            <ToastContainer />
         </>
     )
 }

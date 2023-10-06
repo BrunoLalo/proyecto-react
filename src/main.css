@@ -1,33 +1,57 @@
-.main{
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Lobster&display=swap');
+.main {
     background-color: rgb(241, 230, 213);
 }
 
-.greet{
-    font-size: x-large;
+.widget{
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
-.nav{
+.nav {
     font-size: large;
     background-color: brown;
     border: 2px solid gold;
 }
 
-.cards{
+.nav h3{
+    font-family: 'Lobster', cursive;
+    font-size: xx-large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
+.widget svg{
+    height: 50px;
+    width: 50px;
+}
+
+.cartItems{
+    font-family: 'Lobster', cursive;
+    height: 80px;
+    width: 80px;
+}
+
+.menuBtn{
+    font-family: 'Lobster', cursive;
+    font-size: x-large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.cards {
     height: 80dvh;
     width: 50dvh;
 }
 
-.cards-im{
+.cards-im {
     height: 300px;
     width: 300px;
 }
 
-.cards-text{
+.cards-text {
     padding: 20px;
     align-items: center;
 }
@@ -37,22 +61,105 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 1rem;
 }
+
 .cont {
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
-#botonAlert{
+
+#botonAlert {
     margin: 20px;
     justify-content: end;
 }
 
-h1{
+h1 {
     padding-top: 40PX;
     padding-bottom: 40PX;
     margin-bottom: 30PX;
     margin-left: 60px;
-    text-align: center;  
-    font-size: larger;  
+    text-align: center;
+    font-size: larger;
 }
 
+.item {
+    display: flex;
+    justify-content: center;
+}
+
+
+.noCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.noProductos {
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: x-large
+
+}
+
+.btnHome{
+    margin: 20px;
+    background-color: darkgrey;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 50%;
+    text-align: center;
+}
+
+.limpiarBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.precioTotal{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+h1{
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.precioTotal {
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.itemCart{
+    height: 80dvh;
+    width: 50dvh;
+
+}
+.itemCart h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: large;
+} 
+
+.itemCart h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.idCompra{
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    font-size: large;
+}

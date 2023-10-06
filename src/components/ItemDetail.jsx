@@ -15,31 +15,30 @@ const ItemDetail = ({ producto }) => {
     }
     return (
         <div className="cards">
-
-            <div >
-                <Card className="cardDet">
-                    <CardBody>
-                        <Image
-                            className="cards-im"
-                            src={producto.imagen}
-                            borderRadius='lg' />
-                        <CardHeader>
-                            <Stack mt='6' spacing='3'>
-                                <Heading className="cards-text" size='md'>{producto.nombre}</Heading>
-                            </Stack>
-                        </CardHeader>
-                        <Text>{producto.descripcion}</Text>
-                        <Text color='gray.600' fontSize='2xl'>${producto.precio}</Text>
-                    </CardBody>
-                    <Divider />
-                    <CardFooter>
-                        <ButtonGroup spacing="2">
-                            {
-                                irAlCart ? <Link to='/cart'> <Button>Terminar Compra</Button></Link> : <ItemCount initial={0} onAdd={onAdd} />
-                            }
-                        </ButtonGroup>
-                    </CardFooter>
-                </Card>
+            <div>
+                    <Card className="cardDet">
+                        <CardBody>
+                            <Image
+                                className="cards-im"
+                                src={producto.imagen}
+                                borderRadius='lg' />
+                            <CardHeader>
+                                <Stack mt='6' spacing='3'>
+                                    <Heading className="cards-text" size='md'>{producto.nombre}</Heading>
+                                </Stack>
+                            </CardHeader>
+                            <Text>{producto.descripcion}</Text>
+                            <Text color='gray.600' fontSize='2xl'>${producto.precio}</Text>
+                        </CardBody>
+                        <Divider />
+                        <CardFooter>
+                            <ButtonGroup spacing="2">
+                                {
+                                    irAlCart ? <Link to='/cart'> <Button>Terminar Compra</Button></Link> : <ItemCount initial={0} onAdd={onAdd} />
+                                }
+                            </ButtonGroup>
+                        </CardFooter>
+                    </Card>
             </div>
 
         </div >

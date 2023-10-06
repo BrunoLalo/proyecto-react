@@ -1,18 +1,13 @@
-import { Flex } from "@chakra-ui/react";
+import { Grid, GridItem } from '@chakra-ui/react'
 import Item from "./Item"
-import Loader from "./Loader"
+
 
 const ItemList = ({ productos }) => {
+  return productos.map((p) => {
 
-
-  return (
-
-    <div >
-      {
-        productos.map( (producto) => <Item key={producto.id} producto={producto} />)
-      }
-    </div>
-  )
-}
+    return <Item key={p.id} p={p} />;
+    
+  });
+};
 
 export default ItemList
