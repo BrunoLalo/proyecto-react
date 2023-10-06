@@ -1,20 +1,18 @@
+import { Flex } from "@chakra-ui/react";
 import Item from "./Item"
-import { Flex } from '@chakra-ui/react'
 import Loader from "./Loader"
 
 const ItemList = ({ productos }) => {
 
-  const carga = []
 
   return (
 
-    <div className="card">
+    <div >
       {
-        carga ? <Item productos={productos} /> : <Loader />
+        productos.map( (producto) => <Item key={producto.id} producto={producto} />)
       }
     </div>
   )
-
-};
+}
 
 export default ItemList

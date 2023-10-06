@@ -9,14 +9,14 @@ const CartContextProvider = ({ children }) => {
   const clearCart = () => setCart([]);
 
   const enCart = (id) => {
-    return cart.find (producto => producto.id === id) ? true : false
+    return cart.find (productos => productos.id === id) ? true : false
   }
 
-  const quitarDelCart = (id) => setCart(cart.filter(producto => producto.id !== id))
+  const quitarDelCart = (id) => setCart(cart.filter(productos => productos.id !== id))
 
   const agregarAlCart = (item, quantity) => {
     if(enCart(item.id)){
-      setCart(cart.map(producto => {return producto.id === item.id ? {...producto, quantity: producto.quantity + quantity} : producto}))
+      setCart(cart.map(productos => {return productos.id === item.id ? {...productos, quantity: productos.quantity + quantity} : productos}))
     }else{
         setCart([...cart, {...item, quantity}])
     }

@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   
   useEffect(()=>{
     const db = getFirestore()
-    const itemsCollection = collection(db, "productos")
+    const itemsCollection = collection(db, `products`)
     getDocs(itemsCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data())
       setProducto(docs)
@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
   },[])
   
   
-  const productoFiltro = producto.filter((producto) => producto.id == id)
+  const productoFiltro = producto.filter((productos) => productos.id === id)
   
     return (
       <div className="detailCard">
