@@ -1,4 +1,11 @@
-Aquí dejó el GIF de como funciona el routing del proyecto
+# Bienvenidos a mi proyecto de React
 
+## PotterStore: Tu tienda mágica favorita
 
-![rec-screen-_2_](https://github.com/BrunoLalo/proyecto-react/assets/131211638/8a7c86c7-c31f-4dfb-91a6-44e9fd578f89)
+## Librerías utilizadas:
+* Chakra UI
+* Toastify
+* React-router
+* React Spinners
+
+![Gif](/src/assets/rec-screen-_5_.gif)
